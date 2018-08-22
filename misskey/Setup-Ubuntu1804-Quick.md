@@ -21,7 +21,7 @@
 sudo adduser --disabled-password --disabled-login misskey
 
 # 必要パッケージインストール
-sudo apt install nodejs npm redis mongodb git build-essential nginx ssl-cert letsencrypt
+sudo apt -y install nodejs npm redis mongodb git build-essential nginx ssl-cert letsencrypt
 
 # misskeyユーザーに変更
 sudo su - misskey
@@ -209,6 +209,8 @@ Webブラウザでアクセスして確認する
 
 デーモンで起動するように設定する  
 参考: https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md#systemd%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E8%B5%B7%E5%8B%95 
+
+Let's Encryptの自動更新を設定する
 
 管理者ユーザーを設定する
 ```sh
