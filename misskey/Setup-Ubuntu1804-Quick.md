@@ -183,7 +183,8 @@ sudo letsencrypt certonly --webroot -d misskey.example.com -w /var/www/html/
 ```
 
 再度 `/etc/nginx/sites-enabled/misskey.nginx` を編集して  
-`# self-signed certificate` 下の2行をコメントアウトして、`# letsencrypt certificate` 下の2行のコメントアウトを解除する
+`# self-signed certificate` 下の2行をコメントアウトして、  
+`# letsencrypt certificate` 下の2行のコメントアウトを解除する
 
 引き続き
 ```sh
