@@ -52,6 +52,9 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD7
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 
+# 開始する
+sudo systemctl start mongod
+
 # MongoDBを自動起動するようにする
 sudo systemctl enable mongod
 
