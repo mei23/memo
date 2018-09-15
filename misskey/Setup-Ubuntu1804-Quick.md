@@ -204,6 +204,9 @@ sudo su - misskey
 ```
 cd ~/misskey
 NODE_ENV=production npm start
+
+# ※ デバッグログ等を参照したい場合は以下のコマンドで起動する
+# npm run debug
 ```
 
 Webブラウザでアクセスして確認する
