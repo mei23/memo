@@ -202,6 +202,7 @@ sudo su - misskey
 ### misskeyユーザーででMisskeyを起動してみる
 
 ```
+cd ~/misskey
 NODE_ENV=production npm start
 ```
 
