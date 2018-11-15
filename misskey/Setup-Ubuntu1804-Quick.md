@@ -91,7 +91,7 @@ proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache1:16m max_size=1g in
 server {
     listen 80;
     listen [::]:80;
-    server_name misskey.example.com;
+    server_name example.tld;
 
     # For SSL domain validation
     root /var/www/html;
@@ -103,7 +103,7 @@ server {
 server {
     listen 443 http2;
     listen [::]:443 http2;
-    server_name misskey.example.com;
+    server_name example.tld;
     ssl on;
     ssl_session_timeout 5m;
 
@@ -112,15 +112,15 @@ server {
     ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
 
     # letsencrypt certificate
-    #ssl_certificate           /etc/letsencrypt/live/misskey.example.com/fullchain.pem;
-    #ssl_certificate_key       /etc/letsencrypt/live/misskey.example.com/privkey.pem;
+    #ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
+    #ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
 
     # SSL protocol
     ssl_protocols TLSv1 TLSv1.2;
-    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:AES128-SHA;
+    ssl_ciphers ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:AES128-SHA;
     ssl_prefer_server_ciphers on;
 
-    # これが実質アップロード時の1ファイルあたりのサイズ制限になる
+    # Change to your upload limit
     client_max_body_size 16m;
 
     # Proxy to Node
@@ -143,6 +143,7 @@ server {
         add_header X-Cache $upstream_cache_status;
     }
 }
+
 ```
 
 Nginxコンフィグを編集したら、管理者ユーザで以下を実行する
