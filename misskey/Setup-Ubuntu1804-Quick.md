@@ -21,7 +21,7 @@
 ### misskeyユーザーで以下を実行
 ```sh
 # リポジトリクローン
-git clone -b master git://github.com/syuilo/misskey.git
+git clone -b master https://github.com/syuilo/misskey.git
 
 # ディレクトリ移動
 cd ~/misskey
