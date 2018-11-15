@@ -15,7 +15,7 @@
 - `物理メモリ2GB` or `物理メモリ1GB + スワップ1GB` くらいあるとよい
 
 ### 環境作成
-ユーザーの作成、Node.js, MongoDB のインストール を次を参考にして行う
+まず、ユーザーの作成、Node.js, MongoDB のインストール を次を参考にして行う  
 [Ubuntu/Debian 編](Setup-Ubuntu_Debian.md)
 
 ### misskeyユーザーで以下を実行
