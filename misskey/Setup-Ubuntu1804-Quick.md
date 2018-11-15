@@ -3,10 +3,7 @@
 
 ## 前提
 
-- Ubuntu 18.04 (16.04 でも CentOSでもない)  
-  (これ前提で外部レポジトリは使用してません)  
-  この手順ではディストリビューション付属のNode.jsとMongoDBを使用します。  
-  最新のバージョンを使用したい場合は [Ubuntu/Debian 編](Setup-Ubuntu_Debian.md) から参照してください。
+- Ubuntu 18.04
 - サーバーはファイアウォールなどで保護されていて、22,80,443など以外は開いてない  
   (これ前提で認証設定は端折ってます)
 
@@ -17,18 +14,9 @@
 - VPSやクラウドで、FW付きで(Allow 22,80,443)、サーバーインストールを想定
 - `物理メモリ2GB` or `物理メモリ1GB + スワップ1GB` くらいあるとよい
 
-### 管理者ユーザーで以下を実行
-```sh
-# Misskey用ユーザー作成
-sudo adduser --disabled-password --disabled-login misskey
-
-# 必要パッケージインストール
-sudo apt -y install nodejs npm redis mongodb git build-essential nginx ssl-cert letsencrypt
-
-# misskeyユーザーに変更
-sudo su - misskey
-
-```
+### 環境作成
+ユーザーの作成、Node.js, MongoDB のインストール を次を参考にして行う
+[Ubuntu/Debian 編](Setup-Ubuntu_Debian.md)
 
 ### misskeyユーザーで以下を実行
 ```sh
