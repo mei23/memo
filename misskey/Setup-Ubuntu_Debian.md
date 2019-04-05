@@ -57,14 +57,12 @@ sudo systemctl start mongod
 # MongoDBを自動起動するようにする
 sudo systemctl enable mongod
 
-# その他の必要パッケージをインストール
-sudo apt -y install redis git build-essential nginx ssl-cert letsencrypt
-
 ```
 
-#### Redisインストール  
+#### その他の必要パッケージをインストール
 ```sh
-sudo apt-get install -y 
+sudo apt -y install redis git build-essential nginx ssl-cert letsencrypt
+
 ```
 
 #### misskeyユーザーに変更
