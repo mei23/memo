@@ -62,6 +62,11 @@ sudo apt -y install redis git build-essential nginx ssl-cert letsencrypt
 
 ```
 
+#### Redisインストール  
+```sh
+sudo apt-get install -y 
+```
+
 #### misskeyユーザーに変更
 ```sh
 sudo su - misskey
