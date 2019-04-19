@@ -1,5 +1,5 @@
 
-# Misskey セットアップ Ubuntu 18.04 簡単編
+# Misskey v10 セットアップ Ubuntu 18.04 簡単編
 
 ## 前提
 
@@ -21,13 +21,10 @@
 ### misskeyユーザーで以下を実行
 ```sh
 # リポジトリクローン
-git clone -b master https://github.com/syuilo/misskey.git
+git clone -b v10 https://github.com/syuilo/misskey.git
 
 # ディレクトリ移動
 cd ~/misskey
-
-# 最新リリースをチェックアウト
-git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 
 # コンフィグコピー
 cp .config/example.yml .config/default.yml
@@ -188,7 +185,7 @@ Webブラウザでアクセスして確認する
 ### この後
 
 デーモンで起動するように設定する  
-参考: https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md#systemd%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E8%B5%B7%E5%8B%95 
+参考: https://github.com/mei23/misskey/blob/mei-m544/docs/setup.ja.md#systemd%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E8%B5%B7%E5%8B%95
 
 Let's Encryptの自動更新を設定する
 
