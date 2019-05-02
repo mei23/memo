@@ -187,8 +187,8 @@ Webブラウザでアクセスして確認する
 デーモンで起動するように設定する  
 参考: https://github.com/mei23/misskey/blob/mei-m544/docs/setup.ja.md#systemd%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E8%B5%B7%E5%8B%95
 
-Let's Encryptの自動更新を設定する
-`/etc/cron.d/certbot`のコマンドの後ろに`&& /usr/sbin/service nginx reload`とか付けとく
+Let's Encryptの自動更新を設定する  
+`/etc/cron.d/certbot`のコマンドの後ろに`&& /usr/sbin/service nginx reload`とか付けとく (他にも方法あるかも)
 
 管理者ユーザーを設定する
 ```sh
