@@ -26,9 +26,9 @@ sudo adduser --disabled-password --disabled-login misskey
 ```
 
 #### Node.jsインストール  
-参考: https://nodejs.org/ja/download/package-manager/#debian-and-ubuntu-based-linux-distributions-debian-ubuntu-linux
+参考: https://github.com/nodesource/distributions/blob/master/README.md
 ```sh
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 ```
