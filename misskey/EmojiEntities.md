@@ -10,8 +10,8 @@ aliases: ローカルのMisskey用
 ```
 
 ### API emojis, emojis/recommendation で使われてるやつ
-XEmojiと呼んでる  
-実際のクライアント提示に適した形式  
+- XEmojiと呼んでる
+- 実際のクライアント提示に適した形式
 m544
 ```
 name: 'name' or 'name@host' (hostは常にPunycode, hostが省略されている場合はローカル)
@@ -22,7 +22,7 @@ url: リモート分は'/files/name@host/time.png'のProxy用URLになる
 - REmojiと呼んでる
 - Note, User に emojis として添付するための形式
 - カスタム絵文字とアバター絵文字を扱う
-- クライアントがNote中の絵文字を表示する時には、`:name:`を`url`にマップすればいい。
+- クライアントがNote中の絵文字を表示する時には、本文に登場する`:name:`を`url`にマップすればいい。
 - m544
 ```
 name: 添付元のNote等に記述されている形式 (host部分が省略されている場合は、Noteの所属hostを使用することを意味する, Punycode)
