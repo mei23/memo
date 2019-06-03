@@ -19,10 +19,10 @@ url: リモート分は'/files/name@host/time.png'のProxy用URLになる
 ```
 
 ### 添付用 で使われてるやつ
-REmojiと呼んでる  
-Note, User に emojis として添付するための形式  
-カスタム絵文字とアバター絵文字を扱う  
-m544
+- REmojiと呼んでる
+- Note, User に emojis として添付するための形式
+- カスタム絵文字とアバター絵文字を扱う
+- m544
 ```
 name: 添付元のNote等に記述されている形式 (host部分が省略されている場合は、Noteの所属hostを使用することを意味する, Punycode)
 host: nameのhost部分 (Punycode)
