@@ -20,7 +20,7 @@ url: リモート分は'/files/name@host/time.png'のProxy用URLになる
 
 ### 添付用 で使われてるやつ
 REmojiと呼んでる  
-Note, User に emojis として添付するための形式 
+Note, User に emojis として添付するための形式  
 カスタム絵文字とアバター絵文字を扱う  
 m544
 ```
