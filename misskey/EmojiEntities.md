@@ -22,6 +22,7 @@ url: リモート分は'/files/name@host/time.png'のProxy用URLになる
 - REmojiと呼んでる
 - Note, User に emojis として添付するための形式
 - カスタム絵文字とアバター絵文字を扱う
+- クライアント側がNote中の絵文字を表示する時には、`:name:`を`url`にマップすればいい。
 - m544
 ```
 name: 添付元のNote等に記述されている形式 (host部分が省略されている場合は、Noteの所属hostを使用することを意味する, Punycode)
