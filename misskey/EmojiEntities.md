@@ -11,10 +11,10 @@ aliases: ローカルのMisskey用
 ```
 
 ### API emojis
-実際にクライアント提示に適した形式  
+実際にクライアント提示に適した形式
 m544
 ```
-name: 'name' or 'name@host' (hostは常にPunycode)
+name: 'name' or 'name@host' (hostは常にPunycode, hostが省略されている場合はローカル)
 url: リモート分は'/files/name@host/time.png'のProxy用URLになる
 ```
 
@@ -23,3 +23,13 @@ url: リモート分は'/files/name@host/time.png'のProxy用URLになる
 m544
 Entityは上と同じ
 
+### 添付用
+Note, User に emojis として添付するための形式  
+カスタム絵文字とアバター絵文字を扱う  
+m544
+```
+name: 添付元のNote等に記述されている形式 host部分が省略されている場合は、常にローカルではなくNoteの所属hostを使用する
+host: nameのhost部分
+url: リモート分は'/files/name@host/time.png'のProxy用URLになる
+resolvable: 'name' or 'name@host' (hostは常にPunycode, hostが省略されている場合はローカル)
+```
