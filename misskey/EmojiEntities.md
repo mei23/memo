@@ -24,8 +24,8 @@ Note, User に emojis として添付するための形式
 カスタム絵文字とアバター絵文字を扱う  
 m544
 ```
-name: 添付元のNote等に記述されている形式 host部分が省略されている場合は、常にローカルではなくNoteの所属hostを使用する
+name: 添付元のNote等に記述されている形式 (host部分が省略されている場合は、Noteの所属hostを使用することを意味する, Punycode)
 host: nameのhost部分 (Punycode)
 url: リモート分は'/files/name@host/time.png'のProxy用URLになる
-resolvable: 'name' or 'name@host' (hostは常にPunycode, hostが省略されている場合はローカル)
+resolvable: 'name' or 'name@host' (hostは常にPunycode, hostが省略されている場合はローカル XEmojiのnameと同じ)
 ```
