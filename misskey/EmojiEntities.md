@@ -1,5 +1,5 @@
 
-### API emoji/list
+### API emoji/list で使われてるやつ
 管理者がリモート/ローカルカスタム絵文字を一覧できるAPI  
 V10, v11 にあり
 ```
@@ -10,7 +10,7 @@ id: DBのid (あまり使わない)
 aliases: ローカルのMisskey用
 ```
 
-### API emojis
+### API emojis で使われてるやつ
 実際にクライアント提示に適した形式
 m544
 ```
@@ -18,12 +18,12 @@ name: 'name' or 'name@host' (hostは常にPunycode, hostが省略されている
 url: リモート分は'/files/name@host/time.png'のProxy用URLになる
 ```
 
-### API emojis/recommendation
+### API emojis/recommendation で使われてるやつ
 サジェスト用  
 m544
 Entityは上と同じ
 
-### 添付用
+### 添付用 で使われてるやつ
 Note, User に emojis として添付するための形式  
 カスタム絵文字とアバター絵文字を扱う  
 m544
