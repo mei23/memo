@@ -146,7 +146,7 @@ sudo service nginx reload
 sudo su - misskey
 ```
 
-### misskeyユーザーででMisskeyを起動してみる
+### misskeyユーザーでMisskeyを起動してみる
 
 ```
 cd ~/misskey
