@@ -30,8 +30,14 @@ sudo apt-get install -y nodejs
 
 ```
 
-### yarn
-TODO
+### yarnインストール
+参考: https://classic.yarnpkg.com/en/docs/install#debian-stable
+```sh
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+
+```
 
 #### MongoDBインストール
 参考: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
@@ -119,9 +125,12 @@ exit
 
 ```
 
-### nginx
+### nginx config
 ```sh
 cp ~/misskey/docs/examples/misskey.nginx /etc/nginx/site-enabled/
+
+# example.tldをドメインで置き換える
+vim /etc/nginx/site-enabled/misskey.nginx
 
 ```
 
