@@ -194,13 +194,3 @@ exit
 sudo systemctl restart misskey
 
 ```
-
-### misskeyユーザーででMisskeyを起動してみる
-
-```
-cd ~/misskey
-NODE_ENV=production yarn start
-
-# ※ デバッグログ等を参照したい場合は以下のコマンドで起動する
-# yarn start
-```
