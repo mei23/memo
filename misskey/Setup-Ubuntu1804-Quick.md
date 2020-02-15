@@ -172,3 +172,35 @@ Webブラウザでアクセスして確認する
 cd ~/misskey
 node cli/mark-admin.js @ユーザーID
 ```
+
+### バージョンアップ方法
+
+```sh
+# Misskeyユーザーでなければ変更する
+sudo su - misskey
+
+cd ~/misskey
+
+# 変更を取得＆マージ
+git pull
+
+# 依存関係の更新とビルド
+yarn install && NODE_ENV=production yarn build
+
+# 管理者ユーザーに戻る
+exit
+
+# Misskeyを再起動する
+sudo systemctl restart misskey
+
+```
+
+### misskeyユーザーででMisskeyを起動してみる
+
+```
+cd ~/misskey
+NODE_ENV=production yarn start
+
+# ※ デバッグログ等を参照したい場合は以下のコマンドで起動する
+# yarn start
+```
