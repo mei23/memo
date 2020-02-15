@@ -14,14 +14,61 @@
 - VPSやクラウドで、FW付きで(Allow 22,80,443)、サーバーインストールを想定
 - `物理メモリ2GB` or `物理メモリ1GB + スワップ1GB` くらいあるとよい
 
-### 環境作成
-まず、ユーザーの作成、Node.js, MongoDB のインストール を次を参考にして行う  
-[Ubuntu/Debian 編](Setup-Ubuntu_Debian.md)
+### 管理者ユーザーで以下を実行
+
+#### Misskey用ユーザー作成
+```sh
+sudo adduser --disabled-password --disabled-login misskey
+
+```
+
+#### Node.jsインストール  
+参考: https://github.com/nodesource/distributions/blob/master/README.md
+```sh
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+```
+
+### yarn
+TODO
+
+#### MongoDBインストール
+参考: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+```sh
+# 鍵インポート
+sudo apt-get install gnupg
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+
+# インストール
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+
+# 開始する
+sudo systemctl start mongod
+
+# MongoDBを自動起動するようにする
+sudo systemctl enable mongod
+
+```
+
+#### その他の必要パッケージをインストール
+```sh
+sudo apt -y install redis git build-essential nginx ssl-cert letsencrypt
+
+```
+
+#### misskeyユーザーに変更
+```sh
+sudo su - misskey
+
+```
 
 ### misskeyユーザーで以下を実行
 ```sh
 # リポジトリクローン
-git clone -b v10 https://github.com/syuilo/misskey.git
+git clone -b mei-m544 https://github.com/mei23/misskey.git
 
 # ディレクトリ移動
 cd ~/misskey
@@ -62,102 +109,21 @@ redis:
 cd ~/misskey
 
 # パッケージインストール
-npm install
+yarn install
 
 # ビルド
-NODE_ENV=production npm run build
+NODE_ENV=production yarn build
 
 # ログアウトして管理者ユーザに戻る
 exit
 
 ```
 
-### 管理者ユーザでNginxとSSL証明書を設定
-
-`/etc/nginx/sites-enabled/misskey.nginx` に以下の内容を保存する  
-`misskey.example.com` の部分は使用するホスト名に置き換える  
-ここでは一旦自己署名証明書を設定している
-```nginx
-map $http_upgrade $connection_upgrade {
-  default upgrade;
-  ''      close;
-}
-
-proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache1:16m max_size=1g inactive=720m use_temp_path=off;
-
-server {
-    listen 80;
-    listen [::]:80;
-    server_name example.tld;
-
-    # For SSL domain validation
-    root /var/www/html;
-    location /.well-known/acme-challenge/ { allow all; }
-    location /.well-known/pki-validation/ { allow all; }
-    location / { return 301 https://$server_name$request_uri; }
-}
-
-server {
-    listen 443 http2;
-    listen [::]:443 http2;
-    server_name example.tld;
-    ssl on;
-    ssl_session_timeout 5m;
-
-    # self-signed certificate
-    ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
-    ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
-
-    # letsencrypt certificate
-    #ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
-    #ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
-
-    # SSL protocol
-    ssl_protocols TLSv1 TLSv1.2;
-    ssl_ciphers ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:AES128-SHA;
-    ssl_prefer_server_ciphers on;
-
-    # Change to your upload limit
-    client_max_body_size 16m;
-
-    # Proxy to Node
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto https;
-        proxy_set_header Proxy "";
-        proxy_redirect off;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $connection_upgrade;
-
-        # Cache settings
-        proxy_cache cache1;
-        proxy_cache_lock on;
-        proxy_cache_use_stale updating;
-        add_header X-Cache $upstream_cache_status;
-    }
-}
-
-```
-
-Nginxコンフィグを編集したら、管理者ユーザで以下を実行する
+### nginx
 ```sh
-# Nginxをリロード
-sudo service nginx reload
-
-# Let's Encryptで証明書取得(misskey.example.comの部分は使用するホスト名に置き換える)
-#   メールアドレス入力したりAgreeしたりする
-#   Congratulations! とかでたらOK
-sudo letsencrypt certonly --webroot -d misskey.example.com -w /var/www/html/
+cp ~/misskey/docs/examples/misskey.nginx /etc/nginx/site-enabled/
 
 ```
-
-再度 `/etc/nginx/sites-enabled/misskey.nginx` を編集して  
-`# self-signed certificate` 下の2行をコメントアウトして、  
-`# letsencrypt certificate` 下の2行のコメントアウトを解除する
 
 引き続き
 ```sh
@@ -174,11 +140,14 @@ sudo su - misskey
 
 ```
 cd ~/misskey
-NODE_ENV=production npm start
+NODE_ENV=production yarn start
 
 # ※ デバッグログ等を参照したい場合は以下のコマンドで起動する
-# npm run debug
+# yarn start
 ```
+
+CloudFlareなんかでこのサーバーのアドレスを追加するか (デフォルトのFull SSLモードでOK)
+Let's Encryptで証明書取ったりする
 
 Webブラウザでアクセスして確認する
 
@@ -186,9 +155,6 @@ Webブラウザでアクセスして確認する
 
 デーモンで起動するように設定する  
 参考: https://github.com/mei23/misskey/blob/mei-m544/docs/setup.ja.md#systemd%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E8%B5%B7%E5%8B%95
-
-Let's Encryptの自動更新を設定する  
-`/etc/cron.d/certbot`のコマンドの後ろに`&& /usr/sbin/service nginx reload`とか付けとく (他にも方法あるかも)
 
 管理者ユーザーを設定する
 ```sh
