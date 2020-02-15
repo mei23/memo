@@ -61,7 +61,7 @@ sudo systemctl enable mongod
 
 #### その他の必要パッケージをインストール
 ```sh
-sudo apt -y install redis git build-essential nginx ssl-cert letsencrypt
+sudo apt -y install redis git build-essential nginx ssl-cert letsencrypt ffmpeg
 
 ```
 
