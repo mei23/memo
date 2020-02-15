@@ -127,10 +127,11 @@ exit
 
 ### nginx config
 ```sh
-cp ~/misskey/docs/examples/misskey.nginx /etc/nginx/site-enabled/
+cp ~/misskey/docs/examples/misskey.nginx /etc/nginx/sites-enabled/
+# 本当は sites-available にコピーして sites-enabled からシンボリックリンクが流儀
 
 # example.tldをドメインで置き換える
-vim /etc/nginx/site-enabled/misskey.nginx
+vim /etc/nginx/sites-enabled/misskey.nginx
 
 ```
 
@@ -155,7 +156,7 @@ NODE_ENV=production yarn start
 # yarn start
 ```
 
-CloudFlareなんかでこのサーバーのアドレスを追加するか (デフォルトのFull SSLモードでOK)
+CloudFlareなんかでこのサーバーのアドレスを追加するか (デフォルトのFull SSLモードでOK)  
 Let's Encryptで証明書取ったりする
 
 Webブラウザでアクセスして確認する
