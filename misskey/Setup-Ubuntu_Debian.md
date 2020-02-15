@@ -1,5 +1,5 @@
 
-# Misskey セットアップ Ubuntu/Debian 編
+# Misskey v10 セットアップ Ubuntu 18.04 編
 
 ## 前提
 
