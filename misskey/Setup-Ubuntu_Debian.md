@@ -4,15 +4,13 @@
 ## 前提
 
 - 以下の環境用
-  - Ubuntu 16.04
   - Ubuntu 18.04
-  - Debian
 - サーバーはファイアウォールなどで保護されていて、22,80,443など以外は開いてない  
   (これ前提で認証設定は端折ってます)
 
 ## 手順
 
-### Ubuntu / Debian 等を用意する
+### Ubuntu 18.04 が入ってるサーバーを用意する
 
 - VPSやクラウドで、FW付きで(Allow 22,80,443)、サーバーインストールを想定
 - `物理メモリ2GB` or `物理メモリ1GB + スワップ1GB` くらいあるとよい
@@ -37,15 +35,9 @@ sudo apt-get install -y nodejs
 参考: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 ```sh
 # 鍵インポート
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-
-# sources.list作成
-# ディストリ/バージョンにより違うため、以下のあたりから拾ってください。  
-# https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#create-a-list-file-for-mongodb  
-# https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/#create-a-etc-apt-sources-list-d-mongodb-org-4-0-list-file-for-mongodb  
-#
-# 例えば Ubuntu 18.04の場合
-# echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+sudo apt-get install gnupg
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
 
 # インストール
 sudo apt-get update
