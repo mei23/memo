@@ -23,24 +23,25 @@ sudo adduser --disabled-password --disabled-login misskey
 ```
 
 #### Node.jsインストール  
-参考: https://github.com/nodesource/distributions/blob/master/README.md
 ```sh
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 ```
+引用元: https://github.com/nodesource/distributions/blob/master/README.md
+
 
 ### yarnインストール
-参考: https://classic.yarnpkg.com/en/docs/install#debian-stable
 ```sh
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && sudo apt install yarn
 
 ```
+引用元: https://classic.yarnpkg.com/en/docs/install#debian-stable
+
 
 #### MongoDBインストール
-参考: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 ```sh
 # 鍵インポート
 sudo apt-get install gnupg
@@ -58,6 +59,8 @@ sudo systemctl start mongod
 sudo systemctl enable mongod
 
 ```
+引用元 (一部): https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
 
 #### その他の必要パッケージをインストール
 ```sh
@@ -125,7 +128,7 @@ exit
 
 ```
 
-### nginx config
+### nginxの設定
 ```sh
 cp ~misskey/misskey/docs/examples/misskey.nginx /etc/nginx/sites-enabled/
 # 本当は sites-available にコピーして sites-enabled からシンボリックリンクが流儀
