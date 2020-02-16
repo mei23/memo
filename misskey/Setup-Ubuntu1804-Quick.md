@@ -129,12 +129,14 @@ exit
 ```
 
 ### nginxの設定
+
+管理者ユーザーで実施
 ```sh
-cp ~misskey/misskey/docs/examples/misskey.nginx /etc/nginx/sites-enabled/
+sudo cp ~misskey/misskey/docs/examples/misskey.nginx /etc/nginx/sites-enabled/
 # 本当は sites-available にコピーして sites-enabled からシンボリックリンクが流儀
 
 # example.tldをドメインで置き換える
-vim /etc/nginx/sites-enabled/misskey.nginx
+sudo vim /etc/nginx/sites-enabled/misskey.nginx
 
 ```
 
@@ -156,7 +158,7 @@ cd ~/misskey
 NODE_ENV=production yarn start
 
 # ※ デバッグログ等を参照したい場合は以下のコマンドで起動する
-# yarn start
+yarn start
 ```
 
 CloudFlareとの間でSSL/TLS設定をする  
