@@ -1,4 +1,5 @@
-
+特に明記がない限り Misskey v10-v12, Dolphin全てにあてはまると思う  
+個人の感想
 
 ### configのportとかの設定
 Misskey app自体でhttpsを喋る機能があったりするけど普通に`port: 3000`とかにして  
@@ -33,6 +34,7 @@ https://nodejs.org/api/cli.html#cli_uv_threadpool_size_size
 
 #### configのパフォーマンス系の設定項目
 
+##### worker process数
 ```
 clusterLimit: 1
 ```
@@ -40,6 +42,8 @@ worker processの数 デフォルトの1で大丈夫
 1だとNodeの処理にCPU1スレッド分しか使えないらしいけど、たいていDBとか別プロセスの画像処理の方が重いので大丈夫  
 v11-, Dolphinでガンガン増やすとPostgreSQLの接続が足りなくなったりするので注意  
 
+
+##### ジョブの並列度
 ```
 deliverJobConcurrency: 128
 inboxJobConcurrency: 16
@@ -48,12 +52,19 @@ inboxJobConcurrency: 16
 `ここで設定した値 x clusterLimit x サーバー数`になる  
 変える必要ないと思う、流量を制御したいなら下の値をいじったほうがいい  
 
+
+##### ジョブの流量
 ```
 deliverJobPerSec: 128
 inboxJobPerSec: 16
 ```
 それぞれリモート配信/受信のジョブを1秒あたりに処理する数 (インスタンス全体での値)  
 あまり連合の処理で負荷を上げたくなければ少なくするといいかも
+
+### サーバーの発信IPアドレスを隠したい
+
+Proxy設定できるけどNATとかVPNしたほうが無難  
+AWSでNATセグメントの下に入れるとか
 
 
 
