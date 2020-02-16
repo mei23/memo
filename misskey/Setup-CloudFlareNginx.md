@@ -4,6 +4,8 @@
 Debian/Ubuntuなんかは簡単に自己署名が発行できるのでそれと組み合わせる
 
 nginx側ではDebian/Ubuntuの自己署名証明書を設定して
+
+/etc/nginx/sites-enabled/misskey.nginx
 ```
 ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
 ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
