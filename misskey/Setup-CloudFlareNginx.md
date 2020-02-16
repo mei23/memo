@@ -8,7 +8,7 @@ nginx側ではDebian/Ubuntuの自己署名証明書を設定して
 ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
 ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
 ```
-該当ファイルがなければ`sudo apt install ssl-cert`で入れられる
+※ 該当ファイルがなければ`sudo apt install ssl-cert`で入れられる
 
 CloudFlare側ではmodeとしてFullを選択する  
 ![cf1](assets/cf1.png)
