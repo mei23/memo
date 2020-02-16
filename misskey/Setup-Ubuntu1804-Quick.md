@@ -160,11 +160,12 @@ NODE_ENV=production yarn start
 # ※ デバッグログ等を参照したい場合は以下のコマンドで起動する
 yarn start
 ```
+正常に起動することを確認して Ctrl+Cで 終了する
 
 CloudFlareとの間でSSL/TLS設定をする  
 https://github.com/mei23/memo/blob/master/misskey/Setup-CloudFlareNginx.md の方法1などを参照
 
-Webブラウザでアクセスして確認する
+Webブラウザで実際にアクセスしてみて動作が確認できれば完了
 
 ### この後
 
