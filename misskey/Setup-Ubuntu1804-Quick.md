@@ -151,7 +151,7 @@ sudo su - misskey
 
 ### misskeyユーザーでMisskeyを起動してみる
 
-```
+```sh
 cd ~/misskey
 NODE_ENV=production yarn start
 
