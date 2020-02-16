@@ -31,6 +31,31 @@ https://nodejs.org/api/cli.html#cli_uv_threadpool_size_size
 
 値は例えば16とか32とか。
 
+#### configのパフォーマンス系の設定項目
+
+```
+clusterLimit: 1
+```
+worker processの数 デフォルトの1で大丈夫  
+1だとNodeの処理にCPU1スレッド分しか使えないらしいけど、たいていDBとか別プロセスの画像処理の方が重いので大丈夫  
+v11-, Dolphinでガンガン増やすとPostgreSQLの接続が足りなくなったりするので注意  
+
+```
+deliverJobConcurrency: 128
+inboxJobConcurrency: 16
+```
+それぞれリモート配信/受信のジョブの並列度  
+`ここで設定した値 x clusterLimit x サーバー数`になる  
+変える必要ないと思う、流量を制御したいなら下の値をいじったほうがいい  
+
+```
+deliverJobPerSec: 128
+inboxJobPerSec: 16
+```
+それぞれリモート配信/受信のジョブを1秒あたりに処理する数 (インスタンス全体での値)  
+あまり連合の処理で負荷を上げたくなければ少なくするといいかも
+
+
 
 
 
