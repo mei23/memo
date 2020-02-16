@@ -33,6 +33,7 @@ code splittingで分割されたassetsのjsが404 (キャッシュの状況に�
 Environment Variable `UV_THREADPOOL_SIZE=size`で設定できて、設定値の半分が名前解決に使われる。  
 https://nodejs.org/api/cli.html#cli_uv_threadpool_size_size
 
+systemdのunitファイルなんかで設定するといいかも  
 値は例えば16とか32とか。
 
 #### configのパフォーマンス系の設定項目
