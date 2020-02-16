@@ -127,7 +127,7 @@ exit
 
 ### nginx config
 ```sh
-cp ~/misskey/docs/examples/misskey.nginx /etc/nginx/sites-enabled/
+cp ~misskey/misskey/docs/examples/misskey.nginx /etc/nginx/sites-enabled/
 # 本当は sites-available にコピーして sites-enabled からシンボリックリンクが流儀
 
 # example.tldをドメインで置き換える
@@ -156,8 +156,8 @@ NODE_ENV=production yarn start
 # yarn start
 ```
 
-CloudFlareなんかでこのサーバーのアドレスを追加するか (デフォルトのFull SSLモードでOK)  
-Let's Encryptで証明書取ったりする
+CloudFlareとの間でSSL/TLS設定をする  
+https://github.com/mei23/memo/blob/master/misskey/Setup-CloudFlareNginx.md の方法1などを参照
 
 Webブラウザでアクセスして確認する
 
