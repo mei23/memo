@@ -82,7 +82,6 @@ cp .config/example.yml .config/default.yml
 
 # コンフィグ編集(vimじゃなくてnanoとかでもいい)
 vim .config/default.yml
-
 ```
 
 コンフィグ編集はとくに以下を変更する
@@ -123,14 +122,9 @@ NODE_ENV=production yarn build
 NODE_ENV=production yarn migrate
 
 # 起動してみる
-NODE_ENV=production yarn start
-
-# Now listening on port 3000 on https://example.com などと出ればOK
-
-# ※ デバッグログ等を参照したい場合は以下のコマンドで起動する
 yarn start
-
-正常に起動することを確認して Ctrl+Cで 終了する
+# Now listening on port 3000 on https://example.com などと出ればOK
+# 正常に起動することを確認して Ctrl+Cで 終了する
 
 # 管理者ユーザに戻る
 exit
@@ -145,11 +139,8 @@ sudo cp ~misskey/misskey/docs/examples/misskey.nginx /etc/nginx/sites-enabled/
 
 # example.tldをドメインで置き換える
 sudo vim /etc/nginx/sites-enabled/misskey.nginx
-```
 
-引き続き
-```sh
-# Nginxをリロード
+# nginxをリロード
 sudo service nginx reload
 ```
 
