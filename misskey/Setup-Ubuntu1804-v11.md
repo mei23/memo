@@ -138,6 +138,7 @@ sudo cp ~misskey/misskey/docs/examples/misskey.nginx /etc/nginx/sites-enabled/
 # 本当は sites-available にコピーして sites-enabled からシンボリックリンクが流儀
 
 # example.tldをドメインで置き換える
+# letsencryptの設定をコメントアウトして、snakeoilの設定のコメントをはずす。
 sudo vim /etc/nginx/sites-enabled/misskey.nginx
 
 # nginxをリロード
