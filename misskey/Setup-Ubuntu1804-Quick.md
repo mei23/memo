@@ -70,7 +70,7 @@ sudo su - misskey
 
 ### misskeyユーザーで以下を実行
 ```sh
-# リポジトリクローン
+# リポジトリクローン (めいすきーforkをcloneしてます)
 git clone -b mei-m544 https://github.com/mei23/misskey.git
 
 # ディレクトリ移動
