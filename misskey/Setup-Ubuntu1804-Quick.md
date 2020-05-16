@@ -182,12 +182,12 @@ sudo systemctl start misskey
 sudo systemctl status misskey
 ```
 
-CloudFlareとの間でSSL/TLS設定をする  
+### CloudFlareとの間でSSL/TLS設定をする  
 https://github.com/mei23/memo/blob/master/misskey/Setup-CloudFlareNginx.md の方法1などを参照
 
 設定後Webブラウザで実際にアクセスしてみて動作が確認できれば完了
 
-管理者ユーザーを設定する
+### 管理者ユーザーを設定する
 ```sh
 # Misskeyユーザーでなければ変更する
 sudo su - misskey
