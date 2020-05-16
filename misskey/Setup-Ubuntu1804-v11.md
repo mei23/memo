@@ -1,9 +1,4 @@
-# Misskey v11- セットアップ Ubuntu 18.04
-
-## 前提
-
-- Ubuntu 18.04
-- サーバーはファイアウォールなどで保護されていて、22,80,443など以外は開いてない  
+# Misskey v11/v12 セットアップ Ubuntu 18.04
 
 ## 手順
 
@@ -11,6 +6,7 @@
 
 - VPSやクラウドで、FW付きで(Allow 22,80,443)、サーバーインストールを想定
 - `物理メモリ2GB` or `物理メモリ1GB + スワップ1GB` くらいあるとよい
+- 20.04でも大丈夫
 
 ### 管理者ユーザーで以下を実行
 
@@ -145,8 +141,22 @@ sudo vim /etc/nginx/sites-enabled/misskey.nginx
 sudo service nginx reload
 ```
 
-デーモンで起動するように設定する  
-参考: https://github.com/mei23/misskey/blob/mei-m544/docs/setup.ja.md#systemd%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E8%B5%B7%E5%8B%95
+### systemdで起動するように設定する
+
+```sh
+# serviceファイルをコピー
+sudo cp ~misskey/misskey/docs/examples/misskey.service /etc/systemd/system/
+
+# 再読込して自動起動するように設定
+sudo systemctl daemon-reload
+sudo systemctl enable misskey
+
+# サービスの起動
+sudo systemctl start misskey
+
+# 状態の確認
+sudo systemctl status misskey
+```
 
 CloudFlareとの間でSSL/TLS設定をする  
 https://github.com/mei23/memo/blob/master/misskey/Setup-CloudFlareNginx.md の方法1などを参照
@@ -164,8 +174,14 @@ cd ~/misskey
 # 変更を取得＆マージ
 git pull
 
-# 依存関係の更新とビルド
-yarn install && NODE_ENV=production yarn build
+# 依存関係の更新
+yarn install
+
+# ビルド
+NODE_ENV=production yarn build
+
+# DBマイグレーション
+yarn migrate
 
 # 管理者ユーザーに戻る
 exit

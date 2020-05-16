@@ -155,28 +155,46 @@ sudo su - misskey
 
 ```sh
 cd ~/misskey
-NODE_ENV=production yarn start
 
-# ※ デバッグログ等を参照したい場合は以下のコマンドで起動する
+# 起動してみる
 yarn start
+# Now listening on port 3000 on https://example.com などと出ればOK
+# 正常に起動することを確認して Ctrl+Cで 終了する
+
+# 管理者ユーザに戻る
+exit
 ```
-正常に起動することを確認して Ctrl+Cで 終了する
+
+### systemdで起動するように設定する
+
+```sh
+# serviceファイルをコピー
+sudo cp ~misskey/misskey/docs/examples/misskey.service /etc/systemd/system/
+
+# 再読込して自動起動するように設定
+sudo systemctl daemon-reload
+sudo systemctl enable misskey
+
+# サービスの起動
+sudo systemctl start misskey
+
+# 状態の確認
+sudo systemctl status misskey
+```
 
 CloudFlareとの間でSSL/TLS設定をする  
 https://github.com/mei23/memo/blob/master/misskey/Setup-CloudFlareNginx.md の方法1などを参照
 
-デーモンで起動するように設定する  
-参考: https://github.com/mei23/misskey/blob/mei-m544/docs/setup.ja.md#systemd%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E8%B5%B7%E5%8B%95
-
-起動後Webブラウザで実際にアクセスしてみて動作が確認できれば完了
+設定後Webブラウザで実際にアクセスしてみて動作が確認できれば完了
 
 管理者ユーザーを設定する
 ```sh
-# misskeyユーザーで
+# Misskeyユーザーでなければ変更する
+sudo su - misskey
+
 cd ~/misskey
 node cli/mark-admin.js @ユーザーID
 ```
-
 
 ### バージョンアップ方法
 
@@ -189,13 +207,15 @@ cd ~/misskey
 # 変更を取得＆マージ
 git pull
 
-# 依存関係の更新とビルド
-yarn install && NODE_ENV=production yarn build
+# 依存関係の更新
+yarn install
+
+# ビルド
+NODE_ENV=production yarn build
 
 # 管理者ユーザーに戻る
 exit
 
 # Misskeyを再起動する
 sudo systemctl restart misskey
-
 ```

@@ -67,7 +67,7 @@ psql --host localhost --username dolphin --password
 # dolphinユーザーに変更
 sudo su - dolphin
 
-# リポジトリクローン
+# リポジトリクローン (ここではfork版をcloneしてます)
 git clone https://github.com/mei23/dolphin.git
 
 # ディレクトリ移動
@@ -122,10 +122,8 @@ yarn migrate
 
 # 起動してみる
 yarn start
-
 # Now listening on port 3000 on https://example.com などと出ればOK
-
-正常に起動することを確認して Ctrl+Cで 終了する
+# 正常に起動することを確認して Ctrl+Cで 終了する
 
 # 管理者ユーザに戻る
 exit
@@ -181,8 +179,14 @@ cd ~/dolphin
 # 変更を取得＆マージ
 git pull
 
-# 依存関係の更新とビルド
-yarn install && NODE_ENV=production yarn build
+# 依存関係の更新
+yarn install
+
+# ビルド
+NODE_ENV=production yarn build
+
+# DBマイグレーション
+yarn migrate
 
 # 管理者ユーザーに戻る
 exit
