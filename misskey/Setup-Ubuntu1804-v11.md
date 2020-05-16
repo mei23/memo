@@ -67,7 +67,7 @@ psql --host localhost --username misskey --password
 # misskeyユーザーに変更
 sudo su - misskey
 
-# リポジトリクローン
+# リポジトリクローン (最新バージョン (v12.xとか) のreleaseに近いリポジトリをcloneしてます)
 git clone -b master https://github.com/syuilo/misskey.git
 
 # ディレクトリ移動
