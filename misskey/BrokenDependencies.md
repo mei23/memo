@@ -13,3 +13,9 @@ Misskey, Dolphin 各バージョンでUpdateすると不具合の出るdependenc
 ### gulp-terser v1.2.1
 
 terserのバージョン指定が`^4.0.0` => `>=4` になってるが、`5.0.0`に解決されるとエラーになる。
+
+### css-loader v4.x
+`esModule`オプション
+https://github.com/syuilo/misskey/commit/60736bab2ac974c2d2c2c106d297fa67fdaff87a#diff-b0ba29b245f5327bca2d51ac8bbb0821
+
+なんかまだ他のバグ多そう
