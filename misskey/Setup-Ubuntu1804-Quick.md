@@ -202,7 +202,7 @@ cd ~/misskey
 git pull
 
 # 依存関係の更新
-yarn install
+NODE_ENV=production yarn install
 
 # ビルド
 NODE_ENV=production yarn build
