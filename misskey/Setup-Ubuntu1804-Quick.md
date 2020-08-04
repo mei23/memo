@@ -112,7 +112,7 @@ redis:
 cd ~/misskey
 
 # パッケージインストール
-yarn install
+NODE_ENV=production yarn install
 
 # ビルド
 NODE_ENV=production yarn build
