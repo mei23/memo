@@ -5,7 +5,7 @@
 ### Ubuntu 18.04 を用意する
 
 - VPSやクラウドで、FW付きで(Allow 22,80,443)、サーバーインストールを想定
-- `物理メモリ2GB` or `物理メモリ1GB + スワップ1GB` くらいあるとよい
+- 少なくとも `物理メモリ4GB + スワップ2GB` くらいあるとよい
 - 20.04でも大丈夫
 
 ### 管理者ユーザーで以下を実行
@@ -113,6 +113,8 @@ yarn install
 
 # ビルド
 NODE_ENV=production yarn build
+# heap out of memory (exit code 134) でビルドできない場合は以下のコマンドを使用 (2048は必要に応じて増やしてください)
+# NODE_OPTIONS="--max-old-space-size=2048" NODE_ENV=production yarn build
 
 # DBスキーマ作成
 NODE_ENV=production yarn migrate
