@@ -7,6 +7,8 @@
 
 - VPSやクラウドで、FW付きで(Allow 22,80,443)、サーバーインストールを想定
 - 少なくとも `物理メモリ1GB + スワップ2GB` くらいあるとよい
+- amd64/arm64いずれでも動きます
+- Ubuntu 18.04でも動きますが, Ubuntu 18.04かつarm64の場合はすんなりビルドできません
 
 ### 管理者ユーザーで以下を実行
 
@@ -36,6 +38,8 @@ sudo apt update && sudo apt install yarn
 
 
 #### MongoDBインストール
+
+以下は Ubuntu 20.04 の例, 18.04の場合は引用元を参照してください
 ```sh
 # 鍵インポート
 sudo apt-get install gnupg
