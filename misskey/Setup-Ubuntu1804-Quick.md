@@ -1,6 +1,8 @@
 
 # Misskey v10 セットアップ Ubuntu 18.04 簡単編
 
+[Ubuntu 20.04 の場合はこちら](Setup-Ubuntu2004-Quick.md)
+
 ## 手順
 
 ### Ubuntu 18.04 を用意する
