@@ -1,9 +1,9 @@
 
-# Misskey v10 セットアップ Ubuntu 20.04 簡単編
+# Misskey v10 セットアップ Ubuntu 18.04 簡単編
 
 ## 手順
 
-### Ubuntu 20.04 を用意する
+### Ubuntu 18.04 を用意する
 
 - VPSやクラウドで、FW付きで(Allow 22,80,443)、サーバーインストールを想定
 - 少なくとも `物理メモリ1GB + スワップ2GB` くらいあるとよい
@@ -39,8 +39,8 @@ sudo apt update && sudo apt install yarn
 ```sh
 # 鍵インポート
 sudo apt-get install gnupg
-wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
 
 # インストール
 sudo apt-get update
