@@ -11,6 +11,11 @@ yarn gulp && yarn start
 
 ```
 
+直前のマイグレーションを戻す
+```sh
+npx ts-node ./node_modules/typeorm/cli.js migration:
+```
+
 ### To use Font Awesome icons
 
 Find the icon you want to add  
