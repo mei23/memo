@@ -39,4 +39,11 @@ https://github.com/noellabo/pub-relay
 - publishedを付けないとActivityがforwardされない バグ？
 - LitePub fallbackの挙動がちょっとあやしい
 
+## pub-relay (mei23)
+
+https://github.com/mei23/pub-relay
+
+- pub-relay (fork by noellabo) のfork
+- noellabo版からの主な挙動変更はLitePubの廃止とバグ修正
+  - 結果的にはpub-relayに対象のActivity typeが追加されてバグが修正された感じ。
 
