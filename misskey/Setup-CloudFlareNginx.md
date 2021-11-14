@@ -32,4 +32,4 @@ CloudFlare側ではmodeとしてFullを選択するか・・・
 ![cf21](assets/cf21.png)
 
 ### メモ
-2020年1月現在 CloudFlare新規追加ドメインのデフォルトのモードは`Full`らしく、もう`Flexible`はデフォルトではない。
+デフォルト値はウィザードを実行した時に決まるぽい
