@@ -115,7 +115,7 @@ NODE_ENV=production pnpm i
 # ビルド
 NODE_ENV=production pnpm build
 # heap out of memory (exit code 134) でビルドできない場合は以下のコマンドを使用 (2048は必要に応じて増やしてください)
-# NODE_OPTIONS="--max-old-space-size=2048" NODE_ENV=production yarn build
+# NODE_OPTIONS="--max-old-space-size=2048" NODE_ENV=production pnpm build
 
 # ログアウトして管理者ユーザに戻る
 exit
