@@ -3,7 +3,7 @@
 
 ## 手順
 
-### Ubuntu 20.04を用意する
+### Ubuntu 22.04を用意する
 
 - VPSやクラウドで、FW付きで(Allow 22,80,443)、サーバーインストールを想定
 - 少なくとも `物理メモリ1GB + スワップ2GB` くらいあるとよい
@@ -14,56 +14,38 @@
 #### Misskey用ユーザー作成
 ```sh
 sudo adduser --disabled-password --disabled-login misskey
-
 ```
 
 #### Node.jsインストール  
-```sh
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
 
-```
-引用元: https://github.com/nodesource/distributions/blob/master/README.md
+https://github.com/nodesource/distributions/blob/master/README.md#debian-and-ubuntu-based-distributions  
+※ `NODE_MAJOR=18` にしてインストール
 
-### pnpmインストール
+#### pnpmインストール
 ```sh
 sudo npm i -g pnpm
-
 ```
 
 #### MongoDBインストール
+https://www.mongodb.com/docs/v6.0/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition
 
-以下は Ubuntu 20.04 の例, 18.04の場合は引用元を参照してください
+
 ```sh
-# 鍵インポート
-sudo apt-get install gnupg
-wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
-
-# インストール
-sudo apt-get update
-sudo apt-get install -y mongodb-org
-
 # 開始する
 sudo systemctl start mongod
 
 # MongoDBを自動起動するようにする
 sudo systemctl enable mongod
-
 ```
-引用元 (一部): https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
-
 
 #### その他の必要パッケージをインストール
 ```sh
 sudo apt -y install redis git build-essential nginx ssl-cert letsencrypt ffmpeg
-
 ```
 
 #### misskeyユーザーに変更
 ```sh
 sudo su - misskey
-
 ```
 
 ### misskeyユーザーで以下を実行
@@ -79,7 +61,6 @@ cp .config/example.yml .config/default.yml
 
 # コンフィグ編集(vimじゃなくてnanoとかでもいい)
 vim .config/default.yml
-
 ```
 
 コンフィグ編集はとくに以下を変更する
@@ -119,7 +100,6 @@ NODE_ENV=production pnpm build
 
 # ログアウトして管理者ユーザに戻る
 exit
-
 ```
 
 ### nginxの設定
@@ -131,7 +111,6 @@ sudo cp ~misskey/misskey/docs/examples/misskey.nginx /etc/nginx/sites-enabled/
 
 # example.tldをドメインで置き換える
 sudo vim /etc/nginx/sites-enabled/misskey.nginx
-
 ```
 
 引き続き
