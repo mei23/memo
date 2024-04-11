@@ -18,7 +18,7 @@ https://zenn.dev/legalscape/articles/a0715a699eacb5#node.js%E3%81%AE%E3%83%A1%E3
 8GB: 2096
 ```
 
-値変えていてビルドするとどのくらいでビルド出来るかわかる
+値変えていてビルドするとどのくらいでビルド出来るかだいたいわかりそう
 ```
 # 物理メモリ512MBでビルドできる？
 NODE_ENV=production NODE_OPTIONS=--max-old-space-size=259 pnpm run build
