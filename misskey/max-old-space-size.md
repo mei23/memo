@@ -34,8 +34,12 @@ https://zenn.dev/legalscape/articles/a0715a699eacb5#node.js%E3%81%AE%E3%83%A1%E3
 
 値変えていてビルドするとどのくらいでビルド出来るかわかる
 ```
-NODE_ENV=production NODE_OPTIONS=--max-old-space-size=500 pnpm run build
-NODE_ENV=production NODE_OPTIONS=--max-old-space-size=1000 pnpm run build
-NODE_ENV=production NODE_OPTIONS=--max-old-space-size=1500 pnpm run build
-NODE_ENV=production NODE_OPTIONS=--max-old-space-size=2000 pnpm run build
+# 512MBでビルドできる？
+NODE_ENV=production NODE_OPTIONS=--max-old-space-size=259 pnpm run build
+# 1GBでビルドできる？
+NODE_ENV=production NODE_OPTIONS=--max-old-space-size=464 pnpm run build
+# 2GBでビルドできる？
+NODE_ENV=production NODE_OPTIONS=--max-old-space-size=974 pnpm run build
+# 4GBでビルドできる？
+NODE_ENV=production NODE_OPTIONS=--max-old-space-size=1962 pnpm run build
 ```
