@@ -21,6 +21,15 @@ NODE_OPTIONS=--max-old-space-size=2000 node -e 'console.log(Math.floor(v8.getHea
 デフォルト値は実質環境依存値で、主に物理メモリサイズが影響。  
 https://zenn.dev/legalscape/articles/a0715a699eacb5#node.js%E3%81%AE%E3%83%A1%E3%83%A2%E3%83%AA%E5%88%B6%E9%99%90
 
+以下はUbuntu 22.04, Node v20の値の例
+```
+512MB: 259
+1GB: 464
+2GB: 974
+4GB: 1962
+8GB: 2096
+```
+
 スワップを増やしても解決しない。
 
 値変えていてビルドするとどのくらいでビルド出来るかわかる
