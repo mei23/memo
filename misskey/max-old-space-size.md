@@ -30,7 +30,7 @@ NODE_ENV=production NODE_OPTIONS=--max-old-space-size=974 pnpm run build
 NODE_ENV=production NODE_OPTIONS=--max-old-space-size=1962 pnpm run build
 ```
 
-実際ビルドに必要と思われる物理メモリはこのくらい
+実際普通にビルドするのに必要と思われるメモリはこのくらい
 ```
 Misskey 2024.3.1: 物理メモリ4GB ※develop 2024/4/9でも同様
 めいすきー 10.102.697-m544: 物理メモリ1GB
