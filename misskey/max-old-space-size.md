@@ -18,8 +18,6 @@ https://zenn.dev/legalscape/articles/a0715a699eacb5#node.js%E3%81%AE%E3%83%A1%E3
 8GB: 2096
 ```
 
-スワップを増やしても解決しない。
-
 値変えていてビルドするとどのくらいでビルド出来るかわかる
 ```
 # 物理メモリ512MBでビルドできる？
@@ -41,7 +39,9 @@ Misskey 2024.3.1: 物理メモリ4GB
 ※512MBではダメ
 ```
 
-いちおう値はオプションで変えられる  
+スワップを増やしても解決しない。
+
+値はオプションで変えられる  
 実際のサイズはちょっと違う、以下はUbuntu 22.04, Node v20の値の例
 ```
 NODE_OPTIONS=--max-old-space-size=500 node -e 'console.log(Math.floor(v8.getHeapStatistics().heap_size_limit/1024/1024))'
