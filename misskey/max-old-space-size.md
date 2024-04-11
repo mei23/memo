@@ -35,8 +35,10 @@ NODE_ENV=production NODE_OPTIONS=--max-old-space-size=1962 pnpm run build
 実際ビルドに必要と思われる物理メモリはこのくらい
 ```
 Misskey 2024.3.1: 物理メモリ4GB
+※develop 2024/4/9でも同様
 めいすきー 10.102.697-m544: 物理メモリ1GB
-Dolphin: 物理メモリ1GB
+めいどるふぃん (Dolphin): 物理メモリ1GB
+※512MBではダメ
 ```
 
 いちおう値はオプションで変えられる  
