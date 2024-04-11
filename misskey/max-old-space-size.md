@@ -1,6 +1,7 @@
 # max-old-space-size
+いわゆるNodeのヒープサイズ
 
-Nodeのヒープサイズは以下で取得できる
+実際のNodeのヒープサイズは以下で取得できる
 ```
 node -e 'console.log(Math.floor(v8.getHeapStatistics().heap_size_limit/1024/1024))'
 ```
