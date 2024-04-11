@@ -36,7 +36,7 @@ NODE_ENV=production NODE_OPTIONS=--max-old-space-size=1962 pnpm run build
 ```
 Misskey 2024.3.1: 物理メモリ4GB
 めいすきー 10.102.697-m544: 物理メモリ1GB
-Dolphin 10.102.697-m544: 物理メモリ1GB
+Dolphin: 物理メモリ1GB
 ```
 
 いちおう値はオプションで変えられる  
